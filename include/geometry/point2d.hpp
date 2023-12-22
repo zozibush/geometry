@@ -13,7 +13,7 @@
 #ifndef ZOZIBUSH__GEOMETRY_POINT_2D_HPP_
 #define ZOZIBUSH__GEOMETRY_POINT_2D_HPP_
 
-namespace programmers::geometry {
+namespace zozibush::geometry {
 
 /**
  * @brief Point class with 2-dimension
@@ -158,6 +158,6 @@ class Point2D {
   double y_{0.00};  ///< y coordinate
 };
 
-}  // namespace programmers::geometry
+}  // namespace zozibush::geometry
 
 #endif
