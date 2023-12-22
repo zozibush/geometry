@@ -137,12 +137,12 @@ class Point2D {
    */
   auto operator/(double scalar) const -> Point2D;
 
-/**
- * @brief Same Compare assigment operator
- * @param other Reference of Point2D object
- * @return true Same this point and other point
- * @return false Different this point and other point
- */
+  /**
+   * @brief Same Compare assigment operator
+   * @param other Reference of Point2D object
+   * @return true Same this point and other point
+   * @return false Different this point and other point
+   */
   auto operator==(const Point2D& other) const -> bool;
   /**
    * @brief Different Compare assigment operator
@@ -156,7 +156,7 @@ class Point2D {
  private:
   double x_{0.00};  ///< x coordinate
   double y_{0.00};  ///< y coordinate
-}
+};
 
 }  // namespace programmers::geometry
 
