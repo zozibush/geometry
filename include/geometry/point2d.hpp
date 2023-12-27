@@ -29,7 +29,7 @@ class Point2D {
    * @param x Double type x coordinate value
    * @param y Double type y coordinate value
    */
-  Point2D(double x, double y);
+  Point2D(double input_x, double input_y);
 
   /**
    * @brief Copy construct a new Point2D object with other Point2D object
@@ -79,12 +79,12 @@ class Point2D {
    * @brief Set x coordinate value
    * @param x Double type input x coordinate value
    */
-  void SetX(double x);
+  void SetX(double input_x);
   /**
    * @brief Set y coordinate value
    * @param y Double type input y coordinate value
    */
-  void SetY(double y);
+  void SetY(double input_y);
 
   /**
    * @brief Get x coordinate value of this point
