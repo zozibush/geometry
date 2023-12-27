@@ -157,4 +157,18 @@ TEST(GeometryPoint2D, OperatorSubtractAccumulate) {
     EXPECT_FLOAT_EQ(kSourceY - kTargetY, source.GetY());
   }
 }
+TEST(GeometryPoint2D, OperatorMultiply) {
+  for (uint32_t i = 0; i < kTestCount; ++i) {
+    const auto kSourceX = static_cast<double>(std::rand());
+    const auto kSourceY = static_cast<double>(std::rand());
+    const auto kScaleValue = static_cast<double>(std::rand());
+
+    Point2D source(kSourceX, kSourceY);
+
+    auto result = source * kScaleValue;
+
+    EXPECT_FLOAT_EQ(kSourceX * kScaleValue, result.GetX());
+    EXPECT_FLOAT_EQ(kSourceY * kScaleValue, result.GetY());
+  }
+}
 }  // namespace zozibush::geometry
