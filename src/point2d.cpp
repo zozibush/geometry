@@ -50,4 +50,9 @@ auto Point2D::operator-=(const Point2D& other) -> Point2D& {
   (*this).SetY(kNewY);
   return *this;
 }
+auto Point2D::operator*(double scalar) const -> Point2D {
+  auto kX = this->GetX() * scalar;
+  auto kY = this->GetY() * scalar;
+  return Point2D(kX, kY);
+}
 }  // namespace zozibush::geometry
