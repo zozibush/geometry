@@ -130,7 +130,7 @@ class Point2D {
    */
   auto operator*(double scalar) const -> Point2D;
   /**
-   * @brief Devide assigment operator
+   * @brief Divide assigment operator
    * @param scalar Int value
    * @return Calculated Point2D object
    * @throw If scalar==0, don't divide
