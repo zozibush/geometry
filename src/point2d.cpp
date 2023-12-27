@@ -71,4 +71,7 @@ auto Point2D::operator/(double scalar) const -> Point2D {
 auto Point2D::operator==(const Point2D& other) const -> bool {
   return ((*this).GetX() == other.GetX()) && ((*this).GetY() == other.GetY());
 }
+auto Point2D::operator!=(const Point2D& other) const -> bool {
+  return ((*this).GetX() != other.GetX()) && ((*this).GetY() != other.GetY());
+}
 }  // namespace zozibush::geometry
