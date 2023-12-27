@@ -60,7 +60,7 @@ auto Point2D::operator/(double scalar) const -> Point2D {
   if (std::isnan(scalar) || std::isinf(scalar)) {
     throw std::invalid_argument("scalar is nan or inf");
   }
-  if(scalar==0.0){
+  if (scalar == 0.0) {
     throw std::invalid_argument("scalar is 0, don't divide 0.");
   }
 
