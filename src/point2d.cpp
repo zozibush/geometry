@@ -34,5 +34,12 @@ auto Point2D::operator-(const Point2D& rhs) const -> Point2D {
   auto kY = this->GetY() - rhs.GetY();
   return Point2D(kX, kY);
 }
+auto Point2D::operator+=(const Point2D& other) -> Point2D& {
+  auto kNewX = (*this).GetX() + other.GetX();
+  auto kNewY = (*this).GetY() + other.GetY();
 
+  (*this).SetX(kNewX);
+  (*this).SetY(kNewY);
+  return *this;
+}
 }  // namespace zozibush::geometry
