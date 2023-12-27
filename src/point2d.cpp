@@ -4,6 +4,7 @@
 #include "geometry/point2d.hpp"
 
 #include <cmath>
+#include <stdexcept>
 
 namespace zozibush::geometry {
 Point2D::Point2D(double input_x, double input_y) : x_(input_x), y_(input_y) {}
@@ -53,6 +54,18 @@ auto Point2D::operator-=(const Point2D& other) -> Point2D& {
 auto Point2D::operator*(double scalar) const -> Point2D {
   auto kX = this->GetX() * scalar;
   auto kY = this->GetY() * scalar;
+  return Point2D(kX, kY);
+}
+auto Point2D::operator/(double scalar) const -> Point2D {
+  if (std::isnan(scalar) || std::isinf(scalar)) {
+    throw std::invalid_argument("scalar is nan or inf");
+  }
+  if(scalar==0.0){
+    throw std::invalid_argument("scalar is 0, don't divide 0.");
+  }
+
+  auto kX = this->GetX() / scalar;
+  auto kY = this->GetY() / scalar;
   return Point2D(kX, kY);
 }
 }  // namespace zozibush::geometry
