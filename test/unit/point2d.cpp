@@ -4,6 +4,7 @@
 
 #include <cmath>
 #include <cstdint>
+#include <stdexcept>
 
 #include "gtest/gtest.h"
 
@@ -169,6 +170,38 @@ TEST(GeometryPoint2D, OperatorMultiply) {
 
     EXPECT_FLOAT_EQ(kSourceX * kScaleValue, result.GetX());
     EXPECT_FLOAT_EQ(kSourceY * kScaleValue, result.GetY());
+  }
+}
+TEST(GeometryPoint2D, OperatorDivide) {
+  for (uint32_t i = 0; i < kTestCount; ++i) {
+    const auto kSourceX = static_cast<double>(std::rand());
+    const auto kSourceY = static_cast<double>(std::rand());
+    const auto kScaleValue = static_cast<double>(std::rand());
+
+    Point2D source(kSourceX, kSourceY);
+
+    auto result = source / kScaleValue;
+
+    EXPECT_FLOAT_EQ(kSourceX / kScaleValue, result.GetX());
+    EXPECT_FLOAT_EQ(kSourceY / kScaleValue, result.GetY());
+  }
+
+  {
+    const auto kSourceX = static_cast<double>(std::rand());
+    const auto kSourceY = static_cast<double>(std::rand());
+    Point2D source(kSourceX, kSourceY);
+
+    auto kScaleValue = std::nan("");
+    EXPECT_THROW(source / kScaleValue, std::invalid_argument);
+
+    kScaleValue = std::numeric_limits<double>::infinity();
+    EXPECT_THROW(source / kScaleValue, std::invalid_argument);
+
+    kScaleValue = 0.0;
+    EXPECT_THROW(source / kScaleValue, std::invalid_argument);
+
+    kScaleValue = static_cast<double>(std::rand());
+    EXPECT_NO_THROW(source / kScaleValue);
   }
 }
 }  // namespace zozibush::geometry
