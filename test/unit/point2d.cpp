@@ -93,4 +93,20 @@ TEST(GeometryPoint2D, SetY) {
     EXPECT_FLOAT_EQ(kSourceY, source.GetY());
   }
 }
+TEST(GeometryPoint2D, OperatorAdd) {
+  for (uint32_t i = 0; i < kTestCount; ++i) {
+    const auto kSourceX = static_cast<double>(std::rand());
+    const auto kSourceY = static_cast<double>(std::rand());
+    const auto kTargetX = static_cast<double>(std::rand());
+    const auto kTargetY = static_cast<double>(std::rand());
+
+    Point2D source(kSourceX, kSourceY);
+    Point2D target(kTargetX, kTargetY);
+
+    auto result = source + target;
+
+    EXPECT_FLOAT_EQ(kSourceX+kTargetX,result.GetX());
+    EXPECT_FLOAT_EQ(kSourceY+kTargetY,result.GetY());
+  }
+}
 }  // namespace zozibush::geometry
