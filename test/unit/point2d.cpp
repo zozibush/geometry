@@ -204,4 +204,18 @@ TEST(GeometryPoint2D, OperatorDivide) {
     EXPECT_NO_THROW(source / kScaleValue);
   }
 }
+TEST(GeometryPoint2D, OperatorEqual) {
+  for (uint32_t i = 0; i < kTestCount; ++i) {
+    const auto kSourceX = static_cast<double>(std::rand());
+    const auto kSourceY = static_cast<double>(std::rand());
+    const auto kTargetX = static_cast<double>(std::rand());
+    const auto kTargetY = kSourceY + 1.0;
+
+    Point2D source(kSourceX, kSourceY);
+    Point2D target(kTargetX, kTargetY);
+
+    EXPECT_TRUE(source == Point2D(kSourceX, kSourceY));
+    EXPECT_FALSE(source == target);
+  }
+}
 }  // namespace zozibush::geometry
