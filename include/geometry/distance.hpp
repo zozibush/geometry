@@ -53,6 +53,19 @@ class Distance {
    */
   virtual ~Distance() = default;
 
+  /**
+   * @brief The copy assignment operator.
+   * @param other The other distance object.
+   * @return The reference of distance object.
+   */
+  auto operator=(const Distance& other) -> Distance& = default;
+  /**
+   * @brief The move assignment operator.
+   * @param other The other distance object.
+   * @return The reference of distance object.
+   */
+  auto operator=(Distance&& other) -> Distance& = default;
+
  protected:
  private:
   //  int64_t nanometer_{0}; ///< Nanometer
