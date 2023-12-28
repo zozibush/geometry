@@ -87,6 +87,14 @@ class Distance {
    */
   auto SetValue(double input_value, const Type& input_type) -> void;
 
+  /**
+   * @brief Compare with other distance object for equality.
+   * @param other The other distance object.
+   * @return true If equal.
+   * @return false If not equal.
+   */
+  auto operator==(const Distance& other) const -> bool;
+
  protected:
  private:
   int64_t nanometer_{0};  ///< Nanometer
