@@ -57,4 +57,8 @@ auto Distance::GetValue(const Type &input_type) const -> double {
   }
   return result;
 }
+
+auto Distance::SetValue(double input_value, const Type &input_type) -> void {
+  nanometer_ = ScaleDistanceToNanometer(input_value, input_type);
+}
 }  // namespace zozibush::geometry
