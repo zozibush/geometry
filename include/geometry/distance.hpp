@@ -74,7 +74,7 @@ class Distance {
   auto operator=(Distance&& other) -> Distance& = default;
 
   /**
-   * @brief The getter scaling unit.
+   * @brief Get the distance value for distance type.
    * @param input_type The unit of distance scaling.
    * @return double The scaled distance.
    */
