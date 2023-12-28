@@ -59,4 +59,33 @@ TEST(GeometryDistance, GetValue) {
   Distance distance6(kInputValue, Distance::Type::kNanometer);
   EXPECT_DOUBLE_EQ(kInputValue, distance6.GetValue(Distance::Type::kNanometer));
 }
+TEST(GeometryDistance, SetValue) {
+  const double kInputValue = static_cast<double>(2023.0);
+  Distance distance1;
+  distance1.SetValue(kInputValue, Distance::Type::kKilometer);
+  EXPECT_DOUBLE_EQ(kInputValue, distance1.GetValue(Distance::Type::kKilometer));
+
+  Distance distance2;
+  distance2.SetValue(kInputValue, Distance::Type::kMeter);
+  EXPECT_DOUBLE_EQ(kInputValue, distance2.GetValue(Distance::Type::kMeter));
+
+  Distance distance3;
+  distance3.SetValue(kInputValue, Distance::Type::kCentimeter);
+  EXPECT_DOUBLE_EQ(kInputValue,
+                   distance3.GetValue(Distance::Type::kCentimeter));
+
+  Distance distance4;
+  distance4.SetValue(kInputValue, Distance::Type::kMillimeter);
+  EXPECT_DOUBLE_EQ(kInputValue,
+                   distance4.GetValue(Distance::Type::kMillimeter));
+
+  Distance distance5;
+  distance5.SetValue(kInputValue, Distance::Type::kMicrometer);
+  EXPECT_DOUBLE_EQ(kInputValue,
+                   distance5.GetValue(Distance::Type::kMicrometer));
+
+  Distance distance6;
+  distance6.SetValue(kInputValue, Distance::Type::kNanometer);
+  EXPECT_DOUBLE_EQ(kInputValue, distance6.GetValue(Distance::Type::kNanometer));
+}
 }  // namespace zozibush::geometry
