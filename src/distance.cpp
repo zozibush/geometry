@@ -117,4 +117,14 @@ auto Distance::operator-=(const Distance &other) -> void {
 auto Distance::operator*=(double scale) -> void {
   (*this).SetValue(static_cast<double>(nanometer_) * scale, Type::kNanometer);
 }
+auto Distance::operator/=(double scale) -> void {
+  if (std::isnan(scale) || std::isinf(scale)) {
+    throw std::invalid_argument("scalar is nan or inf");
+  }
+  if (scale == 0.0) {
+    throw std::invalid_argument("scalar is 0, don't divide 0.");
+  }
+
+  (*this).SetValue(static_cast<double>(nanometer_) / scale, Type::kNanometer);
+}
 }  // namespace zozibush::geometry
