@@ -166,6 +166,11 @@ class Distance {
    * @param other The other distance object.
    */
   auto operator-=(const Distance& other) -> void;
+  /**
+   * @brief Multiply and accumulate other distance object.
+   * @param scale The scale double value.
+   */
+  auto operator*=(double scale) -> void;
 
  protected:
  private:
