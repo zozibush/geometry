@@ -116,6 +116,13 @@ class Distance {
    * @return false If other distance object is big.
    */
   auto operator<=(const Distance& other) const -> bool;
+  /**
+   * @brief Compare with other distance object for scale.
+   * @param other The other distance object.
+   * @return true If this distance object is big or same.
+   * @return false If other distance object is small.
+   */
+  auto operator>(const Distance& other) const -> bool;
 
  protected:
  private:
