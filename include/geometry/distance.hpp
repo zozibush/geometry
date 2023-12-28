@@ -156,6 +156,12 @@ class Distance {
    */
   auto operator/(double scale) const -> Distance;
 
+  /**
+   * @brief Add and accumulate other distance object.
+   * @param other The other distance object.
+   */
+  auto operator+=(const Distance& other) -> void;
+
  protected:
  private:
   int64_t nanometer_{0};  ///< Nanometer
