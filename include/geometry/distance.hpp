@@ -161,6 +161,11 @@ class Distance {
    * @param other The other distance object.
    */
   auto operator+=(const Distance& other) -> void;
+  /**
+   * @brief Subtract and accumulate other distance object.
+   * @param other The other distance object.
+   */
+  auto operator-=(const Distance& other) -> void;
 
  protected:
  private:
