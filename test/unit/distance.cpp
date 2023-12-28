@@ -305,4 +305,27 @@ TEST(GeometryDistance, OperatorMultiplyAccumulate) {
   EXPECT_DOUBLE_EQ(distance_by_nano.GetValue(Distance::Type::kKilometer),
                    kInputValue * kScaleValue);
 }
+TEST(GeometryDistance, OperatorDivideAccumulate) {
+  const double kInputValue = static_cast<double>(2038.0);
+  const double kScaleValue = static_cast<double>(2.0);
+  Distance distance_by_kilo(kInputValue, Distance::Type::kKilometer);
+  Distance distance(kInputValue * 1.0e+3, Distance::Type::kMeter);
+  Distance distance_by_nano(kInputValue * 1.0e+12, Distance::Type::kNanometer);
+
+  distance_by_kilo /= kScaleValue;
+  EXPECT_DOUBLE_EQ(distance_by_kilo.GetValue(Distance::Type::kKilometer),
+                   kInputValue / kScaleValue);
+  distance /= kScaleValue;
+  EXPECT_DOUBLE_EQ(distance.GetValue(Distance::Type::kKilometer),
+                   kInputValue / kScaleValue);
+  distance_by_nano /= kScaleValue;
+  EXPECT_DOUBLE_EQ(distance_by_nano.GetValue(Distance::Type::kKilometer),
+                   kInputValue / kScaleValue);
+
+  EXPECT_THROW(distance /= std::nan(""), std::invalid_argument);
+  EXPECT_THROW(distance /= std::numeric_limits<double>::infinity(),
+               std::invalid_argument);
+  EXPECT_THROW(distance /= 0.0, std::invalid_argument);
+  EXPECT_NO_THROW(distance /= kScaleValue);
+}
 }  // namespace zozibush::geometry
