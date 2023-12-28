@@ -149,6 +149,12 @@ class Distance {
    * @return Distance The result of multiplication
    */
   auto operator*(double scale) const -> Distance;
+  /**
+   * @brief Divide other distance object;
+   * @param scale The scale double value;
+   * @return Distance The result of division
+   */
+  auto operator/(double scale) const -> Distance;
 
  protected:
  private:
