@@ -94,6 +94,13 @@ class Distance {
    * @return false If not equal.
    */
   auto operator==(const Distance& other) const -> bool;
+  /**
+   * @brief Compare not with other distance object for equality.
+   * @param other The other distance object.
+   * @return true If not equal.
+   * @return false If equal
+   */
+  auto operator!=(const Distance& other) const -> bool;
 
  protected:
  private:
