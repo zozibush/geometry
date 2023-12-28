@@ -13,6 +13,8 @@
 #ifndef ZOZIBUSH__GEOMETRY_DISTANCE_HPP_
 #define ZOZIBUSH__GEOMETRY_DISTANCE_HPP_
 
+#include <cstdint>
+
 namespace zozibush::geometry {
 /**
  * @brief Distance class
@@ -31,8 +33,29 @@ class Distance {
     kNanometer = 5,   ///< Nanometer
   };
 
+  /**
+   * @brief Construct a new Distance object.
+   */
+  Distance() = default;
+  /**
+   * @brief The copy constructor.
+   * @param other The other  distance object.
+   */
+  Distance(const Distance& other) = default;
+  /**
+   * @brief The move constructor.
+   * @param other The other distance object.
+   */
+  Distance(Distance&& other) noexcept = default;
+
+  /**
+   * @brief Destroy the Distance object.
+   */
+  virtual ~Distance() = default;
+
  protected:
  private:
+  //  int64_t nanometer_{0}; ///< Nanometer
 };
 
 }  // namespace zozibush::geometry
