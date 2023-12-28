@@ -90,4 +90,7 @@ auto Distance::operator-(const Distance &other) const -> Distance {
   return Distance(static_cast<double>(nanometer_ - other.nanometer_),
                   Type::kNanometer);
 }
+auto Distance::operator*(double scale) const -> Distance {
+  return Distance(static_cast<double>(nanometer_) * scale, Type::kNanometer);
+}
 }  // namespace zozibush::geometry
