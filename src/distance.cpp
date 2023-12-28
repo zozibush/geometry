@@ -3,7 +3,9 @@
 
 #include "geometry/distance.hpp"
 
+#include <cmath>
 #include <cstdint>
+#include <stdexcept>
 #include <tuple>
 
 namespace {
@@ -92,5 +94,15 @@ auto Distance::operator-(const Distance &other) const -> Distance {
 }
 auto Distance::operator*(double scale) const -> Distance {
   return Distance(static_cast<double>(nanometer_) * scale, Type::kNanometer);
+}
+auto Distance::operator/(double scale) const -> Distance {
+  if (std::isnan(scale) || std::isinf(scale)) {
+    throw std::invalid_argument("scalar is nan or inf");
+  }
+  if (scale == 0.0) {
+    throw std::invalid_argument("scalar is 0, don't divide 0.");
+  }
+
+  return Distance(static_cast<double>(nanometer_) / scale, Type::kNanometer);
 }
 }  // namespace zozibush::geometry
