@@ -102,6 +102,14 @@ class Distance {
    */
   auto operator!=(const Distance& other) const -> bool;
 
+  /**
+   * @brief Compare with other distance object for scale.
+   * @param other The other distance object.
+   * @return true If this distance object is small.
+   * @return false If other distance object is big.
+   */
+  auto operator<(const Distance& other) const -> bool;
+
  protected:
  private:
   int64_t nanometer_{0};  ///< Nanometer
