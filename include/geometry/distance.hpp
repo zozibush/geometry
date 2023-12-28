@@ -171,6 +171,11 @@ class Distance {
    * @param scale The scale double value.
    */
   auto operator*=(double scale) -> void;
+  /**
+   * @brief Divide and accumulate other distance object.
+   * @param scale The scale double value.
+   */
+  auto operator/=(double scale) -> void;
 
  protected:
  private:
