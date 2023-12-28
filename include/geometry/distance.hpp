@@ -73,6 +73,13 @@ class Distance {
    */
   auto operator=(Distance&& other) -> Distance& = default;
 
+  /**
+   * @brief The getter scaling unit.
+   * @param input_type The unit of distance scaling.
+   * @return double The scaled distance.
+   */
+  [[nodiscard]] auto GetValue(const Type& input_type) const -> double;
+
  protected:
  private:
   int64_t nanometer_{0};  ///< Nanometer
