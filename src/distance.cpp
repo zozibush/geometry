@@ -114,4 +114,7 @@ auto Distance::operator-=(const Distance &other) -> void {
   (*this).SetValue(static_cast<double>(nanometer_ - other.nanometer_),
                    Type::kNanometer);
 }
+auto Distance::operator*=(double scale) -> void {
+  (*this).SetValue(static_cast<double>(nanometer_) * scale, Type::kNanometer);
+}
 }  // namespace zozibush::geometry
