@@ -138,21 +138,21 @@ class Distance {
    */
   auto operator+(const Distance& other) const -> Distance;
   /**
-   * @brief Subtract other distance object;
-   * @param other The other distance object;
-   * @return Distance The result of subtraction
+   * @brief Subtract other distance object.
+   * @param other The other distance object.
+   * @return Distance The result of subtraction.
    */
   auto operator-(const Distance& other) const -> Distance;
   /**
-   * @brief Multiply other distance object;
-   * @param scale The scale double value;
-   * @return Distance The result of multiplication
+   * @brief Multiply other distance object.
+   * @param scale The scale double value.
+   * @return Distance The result of multiplication.
    */
   auto operator*(double scale) const -> Distance;
   /**
-   * @brief Divide other distance object;
-   * @param scale The scale double value;
-   * @return Distance The result of division
+   * @brief Divide other distance object.
+   * @param scale The scale double value.
+   * @return Distance The result of division.
    */
   auto operator/(double scale) const -> Distance;
 
