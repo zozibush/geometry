@@ -80,6 +80,13 @@ class Distance {
    */
   [[nodiscard]] auto GetValue(const Type& input_type) const -> double;
 
+  /**
+   * @brief Set the distance value for distance type.
+   * @param input_value The distance value
+   * @param input_type The unit of distance scaling
+   */
+  auto SetValue(double input_value, const Type& input_type) -> void;
+
  protected:
  private:
   int64_t nanometer_{0};  ///< Nanometer
