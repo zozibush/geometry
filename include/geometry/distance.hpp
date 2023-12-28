@@ -143,6 +143,12 @@ class Distance {
    * @return Distance The result of subtraction
    */
   auto operator-(const Distance& other) const -> Distance;
+  /**
+   * @brief Multiply other distance object;
+   * @param scale The scale double value;
+   * @return Distance The result of multiplication
+   */
+  auto operator*(double scale) const -> Distance;
 
  protected:
  private:
