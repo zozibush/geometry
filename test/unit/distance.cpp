@@ -128,4 +128,24 @@ TEST(GeometryDistance, OperatorSmaller) {
   EXPECT_FALSE(distance_by_kilo < distance_by_nano);
   EXPECT_FALSE(distance < distance_by_nano);
 }
+TEST(GeometryDistance, OperatorSmallerEqual) {
+  const double kInputValue = static_cast<double>(2038.0);
+  Distance distance_by_kilo(kInputValue, Distance::Type::kKilometer);
+  Distance distance(kInputValue * 1.0e+3, Distance::Type::kMeter);
+  Distance distance_by_nano(kInputValue * 1.0e+12, Distance::Type::kNanometer);
+
+  const double kBigInputValue = static_cast<double>(9999.0);
+  Distance distance_big_by_kilo(kBigInputValue, Distance::Type::kKilometer);
+  Distance distance_big(kBigInputValue * 1.0e+3, Distance::Type::kMeter);
+  Distance distance_big_by_nano(kBigInputValue * 1.0e+12,
+                                Distance::Type::kNanometer);
+
+  EXPECT_TRUE(distance_by_kilo <= distance_big_by_kilo);
+  EXPECT_TRUE(distance <= distance_big);
+  EXPECT_TRUE(distance_by_nano <= distance_big_by_nano);
+
+  EXPECT_TRUE(distance_by_kilo <= distance);
+  EXPECT_TRUE(distance_by_kilo <= distance_by_nano);
+  EXPECT_TRUE(distance <= distance_by_nano);
+}
 }  // namespace zozibush::geometry
