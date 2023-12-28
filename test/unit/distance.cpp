@@ -219,4 +219,22 @@ TEST(GeometryDistance, OperatorSubtract) {
   EXPECT_DOUBLE_EQ(distance2.GetValue(Distance::Type::kKilometer), 0.0);
   EXPECT_DOUBLE_EQ(distance3.GetValue(Distance::Type::kKilometer), 0.0);
 }
+TEST(GeometryDistance, OperatorMultiply) {
+  const double kInputValue = static_cast<double>(2038.0);
+  const double kScaleValue = static_cast<double>(2.0);
+  Distance distance_by_kilo(kInputValue, Distance::Type::kKilometer);
+  Distance distance(kInputValue * 1.0e+3, Distance::Type::kMeter);
+  Distance distance_by_nano(kInputValue * 1.0e+12, Distance::Type::kNanometer);
+
+  const auto distance1 = distance_by_kilo * kScaleValue;
+  const auto distance2 = distance * kScaleValue;
+  const auto distance3 = distance_by_nano * kScaleValue;
+
+  EXPECT_DOUBLE_EQ(distance1.GetValue(Distance::Type::kKilometer),
+                   kInputValue * kScaleValue);
+  EXPECT_DOUBLE_EQ(distance2.GetValue(Distance::Type::kKilometer),
+                   kInputValue * kScaleValue);
+  EXPECT_DOUBLE_EQ(distance3.GetValue(Distance::Type::kKilometer),
+                   kInputValue * kScaleValue);
+}
 }  // namespace zozibush::geometry
