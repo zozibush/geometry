@@ -38,6 +38,13 @@ class Distance {
    */
   Distance() = default;
   /**
+   * @brief Construct with value
+   * @param input_value The double type value
+   * @param input_type The unit of distance
+   */
+  explicit Distance(double input_value, Type input_type = Type::kMeter);
+
+  /**
    * @brief The copy constructor.
    * @param other The other  distance object.
    */
@@ -68,7 +75,7 @@ class Distance {
 
  protected:
  private:
-  //  int64_t nanometer_{0}; ///< Nanometer
+  int64_t nanometer_{0};  ///< Nanometer
 };
 
 }  // namespace zozibush::geometry
