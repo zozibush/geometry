@@ -88,4 +88,14 @@ TEST(GeometryDistance, SetValue) {
   distance6.SetValue(kInputValue, Distance::Type::kNanometer);
   EXPECT_DOUBLE_EQ(kInputValue, distance6.GetValue(Distance::Type::kNanometer));
 }
+TEST(GeometryDistance, OperatorEqual) {
+  const double kInputValue = static_cast<double>(2038.0);
+  Distance distance_by_kilo(kInputValue, Distance::Type::kKilometer);
+  Distance distance(kInputValue * 1.0e+3, Distance::Type::kMeter);
+  Distance distance_by_nano(kInputValue * 1.0e+12, Distance::Type::kNanometer);
+
+  EXPECT_TRUE(distance_by_kilo == distance);
+  EXPECT_TRUE(distance_by_kilo == distance_by_nano);
+  EXPECT_TRUE(distance == distance_by_nano);
+}
 }  // namespace zozibush::geometry
