@@ -19,9 +19,22 @@ namespace zozibush::geometry {
  */
 class Distance {
  public:
+  /**
+   * @brief The enum class for distance type.
+   */
+  enum class Type {
+    kKilometer = 0,   ///< Kilometer
+    kMeter = 1,       ///< Meter
+    kCentimeter = 2,  ///< Centimeter
+    kMillimeter = 3,  ///< Millimeter
+    kMicrometer = 4,  ///< Micrometer
+    kNanometer = 5,   ///< Nanometer
+  };
+
  protected:
  private:
 };
+
 }  // namespace zozibush::geometry
 
 #endif  // ZOZIBUSH__GEOMETRY_DISTANCE_HPP_
