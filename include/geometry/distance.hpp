@@ -131,12 +131,18 @@ class Distance {
    */
   auto operator>=(const Distance& other) const -> bool;
 
-/**
- * @brief Add other distance object;
- * @param other The other distance object.
- * @return Distance The result of addition.
- */
+  /**
+   * @brief Add other distance object;
+   * @param other The other distance object.
+   * @return Distance The result of addition.
+   */
   auto operator+(const Distance& other) const -> Distance;
+  /**
+   * @brief Subtract other distance object;
+   * @param other The other distance object;
+   * @return Distance The result of subtraction
+   */
+  auto operator-(const Distance& other) const -> Distance;
 
  protected:
  private:
