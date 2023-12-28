@@ -36,4 +36,27 @@ TEST(GeometryDistance, Assignment) {
   auto distance2 = distance1;
   auto distance3 = std::move(Distance());
 }
+TEST(GeometryDistance, GetValue) {
+  const double kInputValue = static_cast<double>(2023.0);
+  Distance distance1(kInputValue, Distance::Type::kKilometer);
+  EXPECT_DOUBLE_EQ(kInputValue, distance1.GetValue(Distance::Type::kKilometer));
+
+  Distance distance2(kInputValue, Distance::Type::kMeter);
+  EXPECT_DOUBLE_EQ(kInputValue, distance2.GetValue(Distance::Type::kMeter));
+
+  Distance distance3(kInputValue, Distance::Type::kCentimeter);
+  EXPECT_DOUBLE_EQ(kInputValue,
+                   distance3.GetValue(Distance::Type::kCentimeter));
+
+  Distance distance4(kInputValue, Distance::Type::kMillimeter);
+  EXPECT_DOUBLE_EQ(kInputValue,
+                   distance4.GetValue(Distance::Type::kMillimeter));
+
+  Distance distance5(kInputValue, Distance::Type::kMicrometer);
+  EXPECT_DOUBLE_EQ(kInputValue,
+                   distance5.GetValue(Distance::Type::kMicrometer));
+
+  Distance distance6(kInputValue, Distance::Type::kNanometer);
+  EXPECT_DOUBLE_EQ(kInputValue, distance6.GetValue(Distance::Type::kNanometer));
+}
 }  // namespace zozibush::geometry
