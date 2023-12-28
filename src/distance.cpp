@@ -65,4 +65,7 @@ auto Distance::SetValue(double input_value, const Type &input_type) -> void {
 auto Distance::operator==(const Distance &other) const -> bool {
   return (nanometer_ == other.nanometer_);
 }
+auto Distance::operator!=(const Distance &other) const -> bool {
+  return (nanometer_ != other.nanometer_);
+}
 }  // namespace zozibush::geometry
