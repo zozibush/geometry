@@ -13,7 +13,7 @@
 #ifndef ZOZIBUSH__GEOMETRY_POINT_2D_HPP_
 #define ZOZIBUSH__GEOMETRY_POINT_2D_HPP_
 
-namespace programmers::geometry {
+namespace zozibush::geometry {
 
 /**
  * @brief Point class with 2-dimension
@@ -29,7 +29,7 @@ class Point2D {
    * @param x Double type x coordinate value
    * @param y Double type y coordinate value
    */
-  Point2D(double x, double y);
+  Point2D(double input_x, double input_y);
 
   /**
    * @brief Copy construct a new Point2D object with other Point2D object
@@ -79,12 +79,12 @@ class Point2D {
    * @brief Set x coordinate value
    * @param x Double type input x coordinate value
    */
-  void SetX(double x);
+  void SetX(double input_x);
   /**
    * @brief Set y coordinate value
    * @param y Double type input y coordinate value
    */
-  void SetY(double y);
+  void SetY(double input_y);
 
   /**
    * @brief Get x coordinate value of this point
@@ -130,22 +130,22 @@ class Point2D {
    */
   auto operator*(double scalar) const -> Point2D;
   /**
-   * @brief Devide assigment operator
+   * @brief Divide assigment operator
    * @param scalar Int value
    * @return Calculated Point2D object
    * @throw If scalar==0, don't divide
    */
   auto operator/(double scalar) const -> Point2D;
 
-/**
- * @brief Same Compare assigment operator
- * @param other Reference of Point2D object
- * @return true Same this point and other point
- * @return false Different this point and other point
- */
+  /**
+   * @brief Equal operator
+   * @param other Reference of Point2D object
+   * @return true Same this point and other point
+   * @return false Different this point and other point
+   */
   auto operator==(const Point2D& other) const -> bool;
   /**
-   * @brief Different Compare assigment operator
+   * @brief Differ operator
    * @param other Reference of Point2D object
    * @return true Different this point and other point
    * @return false Same this point and other point
@@ -156,8 +156,8 @@ class Point2D {
  private:
   double x_{0.00};  ///< x coordinate
   double y_{0.00};  ///< y coordinate
-}
+};
 
-}  // namespace programmers::geometry
+}  // namespace zozibush::geometry
 
 #endif
